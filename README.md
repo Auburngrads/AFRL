@@ -33,7 +33,7 @@ Lastly, this GitHub repository contains code and data sets that will be used dur
 
 ## Where am I going and when do I need to be there?
 
-The training will begin promptly at 0900 and will be held in building 646, room 102.  Building 646 is on the southwest side of the AFIT campus, directly across Hobson Way from the AFRL Materials and Manufacturing Directorate (AFRL/RX) - it's also the building closest to the Icarus statue.  The easiest way to get to room 102 is to park at AFRL/RX, walk across Hobson Way, and enter through the doors closest to the Icarus statue. Room 102 will be first room on your right - it's a large class room with auditorium-style seating.
+The training will begin promptly at 0900 and will be held in Building 646, Room 102.  Building 646 is on the southwest side of the AFIT campus, directly across Hobson Way from the AFRL Materials and Manufacturing Directorate (AFRL/RX) - it's also the building closest to the Icarus statue.  The easiest way to get to Room 102 is to park at AFRL/RX, walk across Hobson Way, and enter through the doors closest to the Icarus statue. Room 102 will be first room on your right - it's a large classroom with auditorium-style seating.
 
 ## Anything else I need to know?
 
