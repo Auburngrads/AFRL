@@ -1,5 +1,4 @@
 # AFRL/AFMC <img src="https://www.r-project.org/logo/Rlogo.svg" width="5%"> Training<br/>Presented by the AFIT Data Science Lab
-# AFRL/AFMC <img src="https://www.r-project.org/logo/Rlogo.svg" width="5%"> Training
 Maj Jason K. Freels, PhD & Brad C. Boehmke, PhD   
 28 & 29 March 2017  
 
