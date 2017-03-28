@@ -24,7 +24,7 @@ Attendees will need to bring a laptop on which R (>=3.2.5) and RStudio (>=0.98) 
 These packages, and their dependencies, can be installed using the script below
 
 ```r
-install.packages(c('tidyverse','rmarkdown','shiny','data.table','DT','devtools'))
+install.packages(c('tidyverse','rmarkdown','shiny','data.table','DT','devtools', 'nycflights13'))
 ```
 
 Lastly, this GitHub repository contains R code and data sets that will be used during the training.  If you'll be attending this training, locate and click the green `Clone or download` button above and then select `Download ZIP`.  This will download the contents of this repository as a local .zip archive on your machine.  Note, we'll be editing some of the files over the weekend so you may want to wait until Monday.
