@@ -1,6 +1,3 @@
-## ----listsetup, eval=FALSE, echo=FALSE-----------------------------------
-## source(file.path(rprojroot::find_rstudio_root_file(),'setup','setup.R'))
-
 ## ------------------------------------------------------------------------
 l <- list(1:3, "a", c(TRUE, FALSE, TRUE), c(2.5, 4.2))
 str(l)
@@ -33,7 +30,7 @@ l1[[1]] <- c(l1[[1]], 4:6)
 
 str(l1)
 
-l1[[2]] <- c(l1[[2]], c("dding", "to a", "list"))
+l1[[2]] <- c(l1[[2]], c("adding", "to a", "list"))
 
 str(l1)
 
@@ -124,4 +121,36 @@ l3$item2$item2a
 
 # extract individual element from a nested list item
 l3[[2]][[1]][3]
+
+## ---- eval=FALSE---------------------------------------------------------
+## # syntax of lapply function
+## lapply(X, FUN, ...)
+
+## ------------------------------------------------------------------------
+data <- list(item1 = 1:4, 
+             item2 = rnorm(10), 
+             item3 = rnorm(20, 1), 
+             item4 = rnorm(100, 5))
+
+# get the mean of each list item 
+lapply(data, mean)
+
+## ------------------------------------------------------------------------
+# list of R's built in beaver data
+beaver_data <- list(beaver1 = beaver1, 
+                    beaver2 = beaver2)
+
+# get the mean of each list item 
+lapply(beaver_data, function(x) round(apply(x, 2, mean), 2))
+
+## ------------------------------------------------------------------------
+# list of R's built in beaver data
+beaver_data <- list(beaver1 = beaver1, 
+                    beaver2 = beaver2)
+
+# get the mean of each list item and return as a list
+lapply(beaver_data, function(x) round(apply(x, 2, mean), 2))
+
+# get the mean of each list item and simplify the output
+sapply(beaver_data, function(x) round(apply(x, 2, mean), 2))
 

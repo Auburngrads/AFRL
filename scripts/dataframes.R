@@ -1,6 +1,3 @@
-## ----dfsetup, eval=FALSE, echo=FALSE-------------------------------------
-## source(file.path(rprojroot::find_rstudio_root_file(),'setup','setup.R'))
-
 ## ------------------------------------------------------------------------
 df <- data.frame(col1 = 1:3, 
                  col2 = c("this", "is", "text"), 
@@ -169,4 +166,34 @@ mtcars[mtcars$mpg > 20 & mtcars$cyl == 6, c("mpg", "cyl", "wt")]
 
 # using the simplified subset function
 subset(mtcars, mpg > 20 & cyl == 6, c("mpg", "cyl", "wt"))
+
+## ---- eval=FALSE---------------------------------------------------------
+## # syntax of apply function
+## apply(x, MARGIN, FUN, ...)
+
+## ------------------------------------------------------------------------
+# show first few rows of mtcars
+head(mtcars)
+
+# get the mean of each column 
+apply(mtcars, 2, mean)
+
+# get the sum of each row (not really relevant for this data
+# but it illustrates the capability)
+apply(mtcars, 1, sum)
+
+# get column quantiles (notice the quantile percents as row names)
+apply(mtcars, 2, quantile, probs = c(0.10, 0.25, 0.50, 0.75, 0.90))
+
+## ------------------------------------------------------------------------
+# illustrate with the mtcars data set
+head(mtcars)
+
+apply(mtcars, 2, sum)
+
+## ------------------------------------------------------------------------
+colSums(mtcars)
+
+## ------------------------------------------------------------------------
+summary(iris)
 

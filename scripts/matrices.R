@@ -1,6 +1,3 @@
-## ----matsetup, eval=FALSE, echo=FALSE------------------------------------
-## source(file.path(rprojroot::find_rstudio_root_file(),'setup','setup.R'))
-
 ## ------------------------------------------------------------------------
 # numeric matrix
 m1 <- matrix(data = 1:6, nrow = 2, ncol = 3)
