@@ -1,0 +1,144 @@
+---
+title: "Interactive Visualization with Shiny"
+author: "Jason Freels"
+date: "March 28, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+`shiny` is a package providing a web application framework for R createdby Winston Chang.  Shiny makes it easy to build interactive web applications within R by creating automatic "reactive" binding between inputs and outputs.  This tutorial outlines the process of creating an app that does...stuff.  Visualize data or concepts, reduce the number of plots required to convey a message.
+
+## Additional Resources
+
+- __RStudio Shiny Gallery__<br/><http://shiny.rstudio.com/gallery>
+
+- __Shiny User Showcase__<br/><https://www.rstudio.com/products/shiny/shiny-user-showcase/>
+
+- __Show Me Shiny__<br/><https://www.showmeshiny.com>
+
+- __Shiny documentation__<br/> <https://cran.r-project.org/web/packages/shiny/index.html>
+
+- __R-bloggers__<br/><http://www.r-bloggers.com/>
+
+- __Shiny Google Group__<br/><https://groups.google.com/forum/#!forum/shiny-discuss/>
+
+- __Shiny GitHub Page__<br/><https://github.com/rstudio/shiny>
+
+## Basic setup
+
+A shiny app object is created by using the function `shinyApp(ui, server)` where 
+
+- `ui` defines the interface with which a user will interact 
+
+- `server` outlines how the app responds to a user input 
+
+This tutorial will walk through the process of creating an app named `myfirstApp` that will do cool stuff.  Our first, is to create a new directory called 'myfirstApp' that will contain several files that will be used to create build the app. The first two files will be named `ui.R` and `server.R` and will contain the `ui` and `server` objects, respectively.  Note, these files MUST be named `ui.R` and `server.R`, don't deviate from this!  To create these files, create new 'R scripts' and save them within the directory `myfirstApp`.
+
+### The `ui.R` file
+
+Here's where we'll define what the app will look like to potential users.  First, we must choose a page type, this will define the structure of our page.  Shiny provides the following page-type options 
+
+- `fixedPage` - Page with a fixed layout
+- `bootstrapPage` - Page that loads resources for [Bootstrap](http://getbootstrap.com/)
+- `fluidPage` - Page with fluid layout
+- `pageWithSidebar` - Page containing a header, a sidebar for input controls, and a main area for output.
+- `basicPage` - Same as `bootstrapPage`
+- `navbarPage` - Page with a top level navigation bar and subpanels
+- `fillPage` - Page whose height and width always fill the available area of the browser window
+
+#### Define the page type
+
+For this app we'll use a `fluidPage`. Under this structure a skeleton of the `ui` object would appear as follows.
+
+```{r, eval=FALSE}
+library(shiny)
+ui <- fluidPage(...,               # elements of the app
+                title = NULL,      # browser window title
+                responsive = NULL, # deprecated with Bootstrap 3
+                theme = NULL)      # Bootstrap stylesheet
+
+```
+
+Within a `fluidPage` structure we have several options to choose from for configuring the app's layout.  One popular layout choice is `sidebarLayout`, which divides the page into two sections: a `sidebarPanel` and a `mainPanel`.  
+
+```{r, eval=FALSE}
+sidebarLayout(sidebarPanel,       # Input controls in the sidebar
+              mainPanel,          # Output appearing in the mainPanel
+              position = c('left','right'), # position of sidebar
+              fluid = TRUE)       # Use fluid or fixed layout
+```
+
+Adding this sidebarLayout structure to our page fluidPage results in the following `ui` object to this point. Note that I've removed some of the arguments that have default values and don't need to be specified. 
+
+```{r, eval=FALSE}
+library(shiny)
+
+ui <- fluidPage(title = 'My First App!', 
+                theme = NULL,
+        sidebarLayout(
+          sidebarLayout(sidebarPanel,       
+                        mainPanel)))
+
+```
+
+The input elements that will be presented to the user and contained within the sidebarPanel are defined by the function `sidebarPanel()`.  The output to be shown in the mainPanel is defined by the function `mainPanel()`.  Adding these functions to our app results in the follwing.  Note that the `width` arguments for both `sidebarPanel()` and `mainPanel()` must be integers and their sum should no more that 12.
+
+```{r, eval=FALSE}
+library(shiny)
+
+ui <- fluidPage(title = 'My First App!', 
+                theme = NULL,
+        sidebarLayout(
+          sidebarLayout(
+            sidebarPanel(..., width = 4),       
+               mainPanel(..., width = 8))))
+
+```
+
+Now, we have the basic structure of a `ui`.  All that's left to be added are the differnt types of input control options and the type of output. Let's first look at the different types of input elements the can be used.
+
+- `passwordInput`
+- `checkboxInput`       
+- `fileInput`
+- `textAreaInput`
+- `selectInput`
+- `textInput`
+- `dateInput`
+- `selectizeInput`
+- `sliderInput`
+- `numericInput`
+- `dateRangeInput`
+- `checkboxGroupInput`
+
+For this first app we'll use `selectInput` and `sliderInput` 
+
+```{r, echo=FALSE, purl=FALSE}
+nums <- grep('input',tolower(getNamespaceExports('shiny')))
+nums <- grep('update',tolower(getNamespaceExports('shiny')[nums]))
+```
+
+
+Updating the app with this layout results in the following:
+
+```{r, eval=FALSE}
+library(shiny)
+ui <- 
+  fluidPage(
+    sidebarLayout(sidebarPanel, mainPanel,
+    ),               # elements of the app
+            title = NULL,      # browser window title
+            responsive = NULL, # deprecated with Bootstrap 3
+            theme = NULL)      # Bootstrap stylesheet
+
+```
+
+
+
+### The `server.R` file
+
+
