@@ -29,7 +29,7 @@ Attendees will need to bring a laptop on which R (>=3.2.5) and RStudio (>=0.98) 
 These packages, and their dependencies, can be installed using the script below
 
 ```{r, eval=FALSE}
-install.packages(c('tidyverse','rmarkdown','shiny','data.table','DT','devtools'))
+install.packages(c('tidyverse','rmarkdown','shiny','data.table','DT','devtools','nycflights13'))
 ```
 
 Lastly, this GitHub repository contains code and data sets that will be used during the 2-Day R Training Course.  If you will be attending this training, locate and click the green `Clone or download` button above and then select `Download ZIP`.  This will download the contents of this repository as a local .zip archive on your machine.  Once downloaded, extract the files from the zip archive to a convenient location on your machine.  We have yet to encounter a NIPR-networked machine that blocked zip archive downloads from Github.  If your machine is the first please [__send me an email__](mailto:jason.freels@afit.edu) letting me know what error you are experiencing (no, you won't win a prize).
